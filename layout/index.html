@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+let iframe = document.createElement('iframe');
+iframe.src = 'frame/concorde.htm';
+iframe.style.width = '800px';
+iframe.style.height = '600px';
+iframe.style.visibility = 'hidden';
+document.body.appendChild(iframe);
+let i = 0;
+function frame() {
+	let width = (i++) % 2 ? 800 : 400;
+	iframe.style.width = `${width}px`;
+	if (iframe.contentDocument.body) {
+		iframe.contentDocument.getElementById('firstHeading').getBoundingClientRect().width;
+	}
+}
+setInterval(frame, 200);
+</script>
+
+</body>
+</html>
