@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+.layer {
+	position: absolute;
+	width: 800px;
+	height: 600px;
+	background-image: url(dice.png);
+	animation-name: spin;
+	animation-duration: 2s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+@keyframes spin {
+	0% {
+		transform:rotate(0deg);
+	}
+	100% {
+		transform:rotate(360deg);
+	}
+}
+</style>
+<script>
+const numLayers = 10;
+for (let i = 0; i < numLayers; ++i) {
+	let layer = document.createElement('div');
+	layer.className = 'layer';
+	layer.style.animationDelay = `${(i % 20) * 0.1}s`;
+	document.body.appendChild(layer);
+}
+</script>
+</body>
+</html>
